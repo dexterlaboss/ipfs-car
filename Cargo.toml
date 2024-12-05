@@ -1,0 +1,31 @@
+[package]
+name = "dexter-ipfs-car"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cid = "0.10"
+multihash = "0.16"
+serde = { version = "1", features = ["derive"] }
+serde_cbor = "0.11"
+anyhow = "1.0"
+
+[lib]
+crate-type = ["lib"]
+name = "dexter_ipfs_car"
+
+[[bin]]
+name = "car-reader"
+path = "src/bin/car-reader.rs"
+
+[[bin]]
+name = "car-writer"
+path = "src/bin/car-writer.rs"
+
+[[bin]]
+name = "car-indexer"
+path = "src/bin/car-indexer.rs"
+
+[[bin]]
+name = "car-seek"
+path = "src/bin/car-seek.rs"

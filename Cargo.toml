@@ -1,6 +1,11 @@
 [package]
 name = "dexter-ipfs-car"
-version = "0.1.0"
+version = "0.1.1"
+description = "Dexter IPFS CAR (Content Addressable aRchive) library"
+authors = ["Aurimas Narkevicius <aurimas.n@dexterlab.com>"]
+license = "Apache-2.0"
+repository = "https://github.com/dexterlaboss/ipfs-car"
+homepage = "https://dexterlab.com"
 edition = "2021"
 
 [dependencies]

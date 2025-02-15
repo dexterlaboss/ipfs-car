@@ -1,6 +1,6 @@
 [package]
 name = "dexter-ipfs-car"
-version = "0.2.1"
+version = "0.3.0"
 description = "Dexter IPFS CAR (Content Addressable aRchive) library"
 authors = ["Aurimas Narkevicius <aurimas.n@dexterlab.com>"]
 license = "AGPL-3.0-only"

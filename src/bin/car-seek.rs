@@ -1,6 +1,8 @@
 use anyhow::{Result, anyhow};
 use std::env;
-use dexter_ipfs_car::read_block_at_offset;
+use std::fs::File;
+use std::io::BufReader;
+use dexter_ipfs_car::read_block_at_offset_reader;
 
 fn main() -> Result<()> {
     let args: Vec<String> = env::args().collect();
@@ -13,8 +15,14 @@ fn main() -> Result<()> {
     let offset: u64 = args[2].parse().map_err(|_| anyhow!("Invalid offset"))?;
     let length: u64 = args[3].parse().map_err(|_| anyhow!("Invalid length"))?;
 
-    let (row_key, row_data) = read_block_at_offset(car_path, offset, length)?;
+    // Open the CAR file using BufReader
+    let file = File::open(car_path)?;
+    let mut reader = BufReader::new(file);
 
+    // Read the block at the specified offset and length
+    let (row_key, row_data) = read_block_at_offset_reader(&mut reader, offset, length)?;
+
+    // Print the row key and data
     println!("Row Key: {}", row_key);
     println!("Data: {}", String::from_utf8_lossy(&row_data));
 
